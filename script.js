@@ -287,6 +287,32 @@ function resizeCanvas() {
   draw();
 }
 
+// 虚拟按键事件绑定
+document.getElementById("btn-up").addEventListener("click", () => {
+  if (!isRecovering && direction.y !== 1) {
+    direction = { x: 0, y: -1 };
+  }
+});
+
+document.getElementById("btn-down").addEventListener("click", () => {
+  if (!isRecovering && direction.y !== -1) {
+    direction = { x: 0, y: 1 };
+  }
+});
+
+document.getElementById("btn-left").addEventListener("click", () => {
+  if (!isRecovering && direction.x !== 1) {
+    direction = { x: -1, y: 0 };
+  }
+});
+
+document.getElementById("btn-right").addEventListener("click", () => {
+  if (!isRecovering && direction.x !== -1) {
+    direction = { x: 1, y: 0 };
+  }
+});
+
+
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
